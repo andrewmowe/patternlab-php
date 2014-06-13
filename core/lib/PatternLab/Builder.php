@@ -562,7 +562,7 @@ class Builder {
 				$bi = (count($this->navItems["patternTypes"]) == 0) ? 0 : $bi + 1;
 				
 				// set-up the names
-				$patternType      = $name;                                 // 00-atoms
+				$patternType      = $name;                                 // 00-elements
 				$patternTypeDash  = $this->getPatternName($name,false);    // atoms
 				$patternTypeClean = str_replace("-"," ",$patternTypeDash); // atoms (dashes replaced with spaces)
 				
@@ -625,11 +625,11 @@ class Builder {
 				}
 				
 				if ($patternSubtypeSet) {
-					$patternPath     = $patternType.$dirSep.$patternSubtype.$dirSep.$pattern; // 00-atoms/01-global/00-colors
-					$patternPathDash = str_replace($dirSep,"-",$patternPath);                 // 00-atoms-01-global-00-colors (file path)
+					$patternPath     = $patternType.$dirSep.$patternSubtype.$dirSep.$pattern; // 00-elements/01-global/00-colors
+					$patternPathDash = str_replace($dirSep,"-",$patternPath);                 // 00-elements-01-global-00-colors (file path)
 				} else {
-					$patternPath     = $patternType.$dirSep.$pattern;                         // 00-atoms/00-colors
-					$patternPathDash = str_replace($dirSep,"-",$patternPath);                 // 00-atoms-00-colors (file path)
+					$patternPath     = $patternType.$dirSep.$pattern;                         // 00-elements/00-colors
+					$patternPathDash = str_replace($dirSep,"-",$patternPath);                 // 00-elements-00-colors (file path)
 				}
 				
 				// track to see if this pattern should get rendered
@@ -717,11 +717,11 @@ class Builder {
 					
 					// add to patternPaths
 					if ($patternSubtypeSet) {
-						$patternPath     = $patternType.$dirSep.$patternSubtype.$dirSep.$pattern;    // 00-atoms/01-global/00-colors
-						$patternPathDash = str_replace($dirSep,"-",$patternPath);                    // 00-atoms-01-global-00-colors (file path)
+						$patternPath     = $patternType.$dirSep.$patternSubtype.$dirSep.$pattern;    // 00-elements/01-global/00-colors
+						$patternPathDash = str_replace($dirSep,"-",$patternPath);                    // 00-elements-01-global-00-colors (file path)
 					} else {
-						$patternPath     = $patternType.$dirSep.$pattern;                            // 00-atoms/00-colors
-						$patternPathDash = str_replace($dirSep,"-",$patternPath);                    // 00-atoms-00-colors (file path)
+						$patternPath     = $patternType.$dirSep.$pattern;                            // 00-elements/00-colors
+						$patternPathDash = str_replace($dirSep,"-",$patternPath);                    // 00-elements-00-colors (file path)
 					}
 					
 					// add all patterns to patternPaths
@@ -972,8 +972,8 @@ class Builder {
 		$extraFoot          = file_get_contents(__DIR__."/../../templates/pattern-header-footer/footer-pattern.html");
 		
 		// gather the user-defined header and footer information
-		$patternHeadPath    = __DIR__.$this->sp."00-atoms/00-meta/_00-head.mustache";
-		$patternFootPath    = __DIR__.$this->sp."00-atoms/00-meta/_01-foot.mustache";
+		$patternHeadPath    = __DIR__.$this->sp."00-elements/00-meta/_00-head.mustache";
+		$patternFootPath    = __DIR__.$this->sp."00-elements/00-meta/_01-foot.mustache";
 		$patternHead        = (file_exists($patternHeadPath)) ? file_get_contents($patternHeadPath) : "";
 		$patternFoot        = (file_exists($patternFootPath)) ? file_get_contents($patternFootPath) : "";
 		
